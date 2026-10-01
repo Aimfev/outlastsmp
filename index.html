@@ -1,0 +1,974 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Outlast SMP</title><style>
+*{
+    box-sizing:border-box;
+}html{
+scroll-behavior:smooth;
+}
+
+body{
+margin:0;
+font-family:Arial,Helvetica,sans-serif;
+color:#ffffff;
+background:
+radial-gradient(circle at 10% 0%,#123d29 0%,transparent 35%),
+radial-gradient(circle at 90% 10%,#0b6b3b 0%,transparent 35%),
+linear-gradient(135deg,#02150b,#06351d,#0a5c32,#123d29);
+min-height:100vh;
+}
+
+/* =========================
+PURE LIQUID GLASS
+========================= */
+
+.glass{
+background:rgba(255,255,255,0.10);
+border:1px solid rgba(255,255,255,0.22);
+backdrop-filter:blur(22px) saturate(150%);
+-webkit-backdrop-filter:blur(22px) saturate(150%);
+box-shadow:none !important;
+}
+
+/* =========================
+NAVBAR
+========================= */
+
+.navbar{
+position:sticky;
+top:15px;
+z-index:100;
+width:calc(100% - 30px);
+max-width:1200px;
+margin:15px auto 0;
+padding:15px 22px;
+border-radius:22px;
+
+background:rgba(255,255,255,0.12);
+border:1px solid rgba(255,255,255,0.25);
+backdrop-filter:blur(24px) saturate(160%);
+-webkit-backdrop-filter:blur(24px) saturate(160%);
+box-shadow:none;
+
+}
+
+.nav-inner{
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:15px;
+}
+
+.logo{
+font-size:20px;
+font-weight:900;
+letter-spacing:1px;
+color:#ffffff;
+}
+
+.logo span{
+color:#9dffc4;
+}
+
+.nav-links{
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+}
+
+.nav-links a{
+color:#ffffff;
+text-decoration:none;
+font-size:14px;
+font-weight:700;
+padding:9px 14px;
+border-radius:14px;
+
+background:rgba(255,255,255,0.08);
+border:1px solid rgba(255,255,255,0.18);
+
+backdrop-filter:blur(15px);
+-webkit-backdrop-filter:blur(15px);
+
+box-shadow:none;
+transition:0.2s ease;
+
+}
+
+.nav-links a:hover{
+background:rgba(255,255,255,0.18);
+transform:translateY(-1px);
+}
+
+/* =========================
+HERO
+========================= */
+
+.hero{
+min-height:680px;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:90px 20px 80px;
+
+background:
+    radial-gradient(circle at center top,rgba(91,255,151,0.22),transparent 42%),
+    linear-gradient(180deg,rgba(3,30,17,0.15),rgba(3,30,17,0.40));
+
+}
+
+.hero-content{
+width:100%;
+max-width:900px;
+}
+
+.badge{
+display:inline-block;
+padding:10px 17px;
+border-radius:999px;
+
+background:rgba(255,255,255,0.14);
+border:1px solid rgba(255,255,255,0.30);
+
+backdrop-filter:blur(20px);
+-webkit-backdrop-filter:blur(20px);
+
+color:#eafff1;
+font-size:13px;
+font-weight:800;
+letter-spacing:1px;
+
+box-shadow:none;
+
+}
+
+.hero h1{
+margin:25px 0 5px;
+font-size:clamp(58px,13vw,140px);
+line-height:0.85;
+font-weight:1000;
+letter-spacing:-5px;
+color:#ffffff;
+}
+
+.hero h1 span{
+color:#9dffc4;
+}
+
+.hero p{
+max-width:700px;
+margin:30px auto;
+font-size:18px;
+line-height:1.7;
+color:#f3fff7;
+}
+
+/* =========================
+PURE GLASS BUTTONS
+========================= */
+
+.btn{
+display:inline-flex;
+align-items:center;
+justify-content:center;
+gap:8px;
+
+padding:14px 22px;
+border-radius:17px;
+
+color:#ffffff;
+text-decoration:none;
+font-weight:800;
+border:1px solid rgba(255,255,255,0.30);
+
+background:
+    linear-gradient(
+        135deg,
+        rgba(255,255,255,0.22),
+        rgba(255,255,255,0.07)
+    );
+
+backdrop-filter:blur(22px) saturate(160%);
+-webkit-backdrop-filter:blur(22px) saturate(160%);
+
+box-shadow:none !important;
+
+transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    border-color 0.2s ease;
+
+}
+
+.btn:hover{
+background:rgba(255,255,255,0.20);
+border-color:rgba(255,255,255,0.45);
+transform:translateY(-2px);
+}
+
+.btn:active{
+transform:scale(0.98);
+}
+
+.btn-primary{
+background:rgba(104,255,160,0.22);
+border-color:rgba(157,255,196,0.45);
+}
+
+/* =========================
+SECTIONS
+========================= */
+
+section{
+padding:90px 20px;
+}
+
+.container{
+width:100%;
+max-width:1150px;
+margin:auto;
+}
+
+.section-title{
+text-align:center;
+margin-bottom:45px;
+}
+
+.section-title h2{
+margin:0 0 10px;
+font-size:42px;
+color:#ffffff;
+}
+
+.section-title p{
+margin:0;
+color:#d7f5e2;
+}
+
+/* =========================
+CARDS
+========================= */
+
+.grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+}
+
+.card{
+padding:28px;
+border-radius:25px;
+
+background:
+    linear-gradient(
+        135deg,
+        rgba(255,255,255,0.14),
+        rgba(255,255,255,0.055)
+    );
+
+border:1px solid rgba(255,255,255,0.22);
+
+backdrop-filter:blur(25px) saturate(150%);
+-webkit-backdrop-filter:blur(25px) saturate(150%);
+
+box-shadow:none !important;
+
+position:relative;
+overflow:hidden;
+
+transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
+
+}
+
+.card:hover{
+transform:translateY(-3px);
+background:rgba(255,255,255,0.13);
+border-color:rgba(255,255,255,0.35);
+}
+
+.card h3{
+margin:0 0 12px;
+font-size:21px;
+color:#ffffff;
+}
+
+.card p{
+margin:0;
+color:#e2f9eb;
+line-height:1.6;
+}
+
+.icon{
+font-size:32px;
+margin-bottom:15px;
+}
+
+/* =========================
+SERVER INFO
+========================= */
+
+.server-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:20px;
+}
+
+.server-card{
+padding:25px;
+border-radius:23px;
+
+background:rgba(255,255,255,0.09);
+border:1px solid rgba(255,255,255,0.22);
+
+backdrop-filter:blur(25px) saturate(150%);
+-webkit-backdrop-filter:blur(25px) saturate(150%);
+
+box-shadow:none !important;
+
+}
+
+.server-label{
+font-size:12px;
+font-weight:800;
+color:#b8eecb;
+letter-spacing:1px;
+margin-bottom:8px;
+}
+
+.server-value{
+font-size:22px;
+font-weight:900;
+color:#ffffff;
+word-break:break-word;
+}
+
+.copy-btn{
+margin-top:15px;
+cursor:pointer;
+border:none;
+}
+
+/* =========================
+LIVE STATUS
+========================= */
+
+.status-card{
+margin-top:20px;
+padding:30px;
+border-radius:25px;
+
+background:rgba(255,255,255,0.10);
+border:1px solid rgba(255,255,255,0.23);
+
+backdrop-filter:blur(28px) saturate(160%);
+-webkit-backdrop-filter:blur(28px) saturate(160%);
+
+box-shadow:none !important;
+
+}
+
+.status-top{
+display:flex;
+align-items:center;
+gap:12px;
+}
+
+.status-dot{
+width:12px;
+height:12px;
+border-radius:50%;
+background:#a8b5ad;
+}
+
+.status-dot.online{
+background:#69ff9d;
+}
+
+.status-dot.offline{
+background:#ff6b6b;
+}
+
+.status-dot.error{
+background:#ffd166;
+}
+
+.status-title{
+font-size:13px;
+font-weight:900;
+letter-spacing:1px;
+}
+
+.status-main{
+margin-top:20px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:20px;
+}
+
+.status-text{
+font-size:30px;
+font-weight:900;
+}
+
+.players{
+font-size:18px;
+color:#d9f9e5;
+}
+
+.last-check{
+margin-top:12px;
+color:#bce7ca;
+font-size:13px;
+}
+
+/* =========================
+RULES
+========================= */
+
+.rules{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:16px;
+}
+
+.rule{
+padding:20px;
+border-radius:20px;
+
+background:rgba(255,255,255,0.08);
+border:1px solid rgba(255,255,255,0.20);
+
+backdrop-filter:blur(22px);
+-webkit-backdrop-filter:blur(22px);
+
+box-shadow:none !important;
+
+color:#effff4;
+
+}
+
+.rule strong{
+color:#ffffff;
+}
+
+/* =========================
+STAFF
+========================= */
+
+.staff-grid{
+display:grid;
+grid-template-columns:repeat(5,1fr);
+gap:15px;
+}
+
+.staff-card{
+text-align:center;
+padding:25px 15px;
+border-radius:23px;
+
+background:rgba(255,255,255,0.09);
+border:1px solid rgba(255,255,255,0.22);
+
+backdrop-filter:blur(25px);
+-webkit-backdrop-filter:blur(25px);
+
+box-shadow:none !important;
+
+}
+
+.staff-icon{
+font-size:35px;
+margin-bottom:12px;
+}
+
+.staff-card h3{
+margin:0 0 8px;
+color:#ffffff;
+font-size:17px;
+}
+
+.staff{
+margin:0;
+font-weight:800;
+color:#baffd0;
+}
+
+.small{
+margin:7px 0 0;
+font-size:12px;
+color:#ccebd6;
+}
+
+/* =========================
+DISCORD
+========================= */
+
+.discord{
+text-align:center;
+padding:80px 20px;
+}
+
+.discord-box{
+max-width:750px;
+margin:auto;
+padding:45px 25px;
+border-radius:30px;
+
+background:
+    linear-gradient(
+        135deg,
+        rgba(255,255,255,0.14),
+        rgba(255,255,255,0.06)
+    );
+
+border:1px solid rgba(255,255,255,0.25);
+
+backdrop-filter:blur(28px) saturate(160%);
+-webkit-backdrop-filter:blur(28px) saturate(160%);
+
+box-shadow:none !important;
+
+}
+
+.discord-box h2{
+margin:0 0 12px;
+font-size:38px;
+color:#ffffff;
+}
+
+.discord-box p{
+color:#ddf8e6;
+margin-bottom:25px;
+}
+
+/* =========================
+FOOTER
+========================= */
+
+footer{
+padding:35px 20px;
+text-align:center;
+
+background:rgba(0,0,0,0.16);
+border-top:1px solid rgba(255,255,255,0.15);
+
+color:#ccebd6;
+
+}
+
+footer strong{
+color:#ffffff;
+}
+
+.made-by{
+margin-top:12px;
+color:#baffd0;
+font-size:13px;
+letter-spacing:0.5px;
+}
+
+.made-by strong{
+color:#ffffff;
+}
+
+/* =========================
+MOBILE
+========================= */
+
+@media(max-width:900px){
+
+.grid{
+    grid-template-columns:1fr;
+}
+
+.staff-grid{
+    grid-template-columns:repeat(2,1fr);
+}
+
+.server-grid{
+    grid-template-columns:1fr;
+}
+
+.rules{
+    grid-template-columns:1fr;
+}
+
+.hero{
+    min-height:600px;
+}
+
+}
+
+@media(max-width:600px){
+
+.navbar{
+    width:calc(100% - 20px);
+    top:10px;
+    margin-top:10px;
+    padding:13px 15px;
+}
+
+.nav-inner{
+    flex-direction:column;
+}
+
+.nav-links{
+    justify-content:center;
+}
+
+.nav-links a{
+    font-size:12px;
+    padding:8px 11px;
+}
+
+.hero{
+    padding:75px 18px 65px;
+}
+
+.hero h1{
+    font-size:clamp(55px,20vw,95px);
+    letter-spacing:-3px;
+}
+
+.hero p{
+    font-size:16px;
+}
+
+.section-title h2{
+    font-size:34px;
+}
+
+.status-main{
+    flex-direction:column;
+    align-items:flex-start;
+}
+
+}
+
+@media(max-width:420px){
+
+.staff-grid{
+    grid-template-columns:1fr;
+}
+
+.btn{
+    width:100%;
+}
+
+.hero .btn{
+    width:auto;
+}
+
+}
+</style></head><body>
+
+<!-- =========================
+     NAVBAR
+========================= --><nav class="navbar">
+<div class="nav-inner"><div class="logo">
+🌲 OUTLAST<span>SMP</span>
+</div><div class="nav-links">
+<a href="#why">Why Join</a>
+<a href="#server">Server</a>
+<a href="#rules">Rules</a>
+<a href="#staff">Staff</a>
+<a href="#discord">Discord</a>
+</div></div>
+</nav><!-- =========================
+     HERO
+========================= --><header class="hero"><div class="hero-content"><div class="badge">
+🌲 PURE SEMI-ANARCHY
+</div><h1>
+OUTLAST<br>
+<span>SMP</span>
+</h1><p>
+A pure semi-anarchy Minecraft Bedrock survival server.
+Build, fight, explore, trade, raid and survive.
+Your choices shape the world.
+</p><a class="btn btn-primary" href="#server">
+🌲 Join Outlast SMP
+</a></div></header><!-- =========================
+     WHY JOIN
+========================= --><section id="why"><div class="container"><div class="section-title">
+<h2>Why Outlast?</h2>
+<p>Survive your way. Build your story.</p>
+</div><div class="grid"><div class="card">
+<div class="icon">⚔️</div>
+<h3>Semi-Anarchy</h3>
+<p>
+Minimal restrictions. Players are free to create their own stories while following the server rules.
+</p>
+</div><div class="card">
+<div class="icon">🌲</div>
+<h3>Explore</h3>
+<p>
+Travel across the world, discover new locations and build your own place in the wilderness.
+</p>
+</div><div class="card">
+<div class="icon">🔥</div>
+<h3>PvP</h3>
+<p>
+Fight other players, defend your base and prove yourself in the world of Outlast SMP.
+</p>
+</div></div>
+</div></section><!-- =========================
+     SERVER
+========================= --><section id="server"><div class="container"><div class="section-title">
+<h2>Server Info</h2>
+<p>Everything you need to join.</p>
+</div><div class="server-grid"><div class="server-card">
+<div class="server-label">SERVER IP</div>
+<div class="server-value" id="serverIp">
+109.123.232.42
+</div><button class="btn copy-btn"
+onclick="copyText('109.123.232.42')">
+📋 Copy IP
+</button></div><div class="server-card">
+<div class="server-label">BEDROCK PORT</div>
+<div class="server-value" id="serverPort">
+19150
+</div><button class="btn copy-btn"
+onclick="copyText('19150')">
+📋 Copy Port
+</button></div><div class="server-card">
+<div class="server-label">PLATFORM</div>
+<div class="server-value">
+Bedrock Edition
+</div>
+</div><div class="server-card">
+<div class="server-label">GAME VERSION</div>
+<div class="server-value">
+26.51
+</div>
+</div></div><!-- LIVE STATUS --><div class="status-card"><div class="status-top">
+<div class="status-dot" id="statusDot"></div><div class="status-title">
+LIVE SERVER STATUS
+</div>
+</div><div class="status-main"><div>
+<div class="status-text" id="statusText">
+CHECKING...
+</div><div class="players" id="playerCount">
+-- / --
+</div>
+</div></div><div class="last-check" id="lastCheck">
+Checking server...
+</div></div></div></section><!-- =========================
+     RULES
+========================= --><section id="rules"><div class="container"><div class="section-title">
+<h2>Server Rules</h2>
+<p>Keep Outlast SMP playable for everyone.</p>
+</div><div class="rules"><div class="rule">
+<strong>01 — No Cheats</strong><br>
+Do not use cheats, hacks or unauthorized clients.
+</div><div class="rule">
+<strong>02 — No Server Attacks</strong><br>
+Do not intentionally crash, overload or lag the server.
+</div><div class="rule">
+<strong>03 — No Spam</strong><br>
+Do not spam chats or excessively advertise.
+</div><div class="rule">
+<strong>04 — Respect Others</strong><br>
+Respect the server and its community.
+</div><div class="rule">
+<strong>05 — Staff Decisions</strong><br>
+Follow reasonable instructions from server staff.
+</div></div></div></section><!-- =========================
+     STAFF
+========================= --><section id="staff"><div class="container"><div class="section-title">
+<h2>Our Team</h2>
+<p>The people helping keep Outlast SMP running.</p>
+</div><div class="staff-grid"><div class="staff-card">
+<div class="staff-icon">👑</div>
+<h3>Owner</h3>
+<p class="staff">Fierce</p>
+<p class="small">Server Owner</p>
+</div><div class="staff-card">
+<div class="staff-icon">🛠️</div>
+<h3>Developer</h3>
+<p class="staff">Yue,kolzar,xyloto</p>
+<p class="small">Server Developer</p>
+</div><div class="staff-card">
+<div class="staff-icon">🛡️</div>
+<h3>Admin</h3>
+<p class="staff">Arianabebs</p>
+<p class="small">Server Administrator</p>
+</div><div class="staff-card">
+<div class="staff-icon">🧪</div>
+<h3>Tier Tester</h3>
+<p class="staff">Zurichi</p>
+<p class="small">PvP Tier Tester</p>
+</div><div class="staff-card">
+<div class="staff-icon">🏗️</div>
+<h3>Builder</h3>
+<p class="staff">Thyazura,ℱ𝓁𝒶𝓂𝑒𝒻𝓇𝒶𝑔𝓈,Jhune</p>
+<p class="small">Server Builder</p>
+</div></div></div></section><!-- =========================
+     DISCORD
+========================= --><section id="discord" class="discord"><div class="discord-box"><h2>Join The Community</h2><p>
+Join the Outlast SMP Discord to get updates, announcements and connect with other players.
+</p><a
+class="btn btn-primary"
+href="https://discord.gg/X6vCMfV83k"
+target="_blank"
+rel="noopener"«»
+
+💬 Join Discord
+</a>
+
+</div></section><!-- =========================
+     FOOTER
+========================= --><footer><strong>🌲 Outlast SMP</strong><br><br>
+
+© 2026 Outlast SMP. All rights reserved.
+
+<div class="made-by">
+Made by: <strong>duckythegoat_01</strong> 🐐
+</div></footer><script>
+
+/* =========================
+   SERVER CONFIG
+========================= */
+
+const SERVER_IP = "109.123.232.42";
+const SERVER_PORT = "19150";
+
+const STATUS_API =
+"https://api.mcstatus.io/v2/status/bedrock/" +
+SERVER_IP + ":" + SERVER_PORT;
+
+
+/* =========================
+   COPY FUNCTION
+========================= */
+
+function copyText(text){
+
+    navigator.clipboard.writeText(text)
+    .then(() => {
+
+        alert("Copied: " + text);
+
+    })
+    .catch(() => {
+
+        alert("Copy failed. Please copy it manually.");
+
+    });
+
+}
+
+
+/* =========================
+   SERVER STATUS
+========================= */
+
+async function checkServer(){
+
+    const statusText =
+        document.getElementById("statusText");
+
+    const playerCount =
+        document.getElementById("playerCount");
+
+    const statusDot =
+        document.getElementById("statusDot");
+
+    const lastCheck =
+        document.getElementById("lastCheck");
+
+
+    statusText.textContent = "CHECKING...";
+    playerCount.textContent = "-- / --";
+
+    statusDot.className = "status-dot";
+
+
+    try{
+
+        const response = await fetch(
+            STATUS_API,
+            {
+                method:"GET",
+                cache:"no-store"
+            }
+        );
+
+
+        if(!response.ok){
+            throw new Error("API Error");
+        }
+
+
+        const server = await response.json();
+
+
+        if(server.online){
+
+            statusText.textContent = "ONLINE";
+
+            statusDot.className =
+                "status-dot online";
+
+            const online =
+                server.players?.online ?? 0;
+
+            const max =
+                server.players?.max ?? 0;
+
+            playerCount.textContent =
+                online + " / " + max + " PLAYERS";
+
+        }else{
+
+            statusText.textContent = "OFFLINE";
+
+            statusDot.className =
+                "status-dot offline";
+
+            playerCount.textContent =
+                "0 / 0 PLAYERS";
+
+        }
+
+
+        lastCheck.textContent =
+            "Last checked: " +
+            new Date().toLocaleTimeString();
+
+    }catch(error){
+
+        statusText.textContent =
+            "STATUS ERROR";
+
+        statusDot.className =
+            "status-dot error";
+
+        playerCount.textContent =
+            "-- / --";
+
+        lastCheck.textContent =
+            "Unable to check server status.";
+
+    }
+
+}
+
+
+/* =========================
+   START STATUS CHECK
+========================= */
+
+checkServer();
+
+setInterval(
+    checkServer,
+    15000
+);
+
+</script></body></html>
